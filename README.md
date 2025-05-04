@@ -222,7 +222,7 @@ opkg install nmap ncat && /opt/zapret/init.d/sysv/zapret stop && SKIP_TPWS=1 MAX
 #### Обход геоблока через hosts Keenetic/Netcraze для таких ресурсов как:  
 *ChatGPT, Gemini, Copilot, Codeium, JetBrains, Tidal, claude.ai, Canva, Intel:*
 ```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/nikrays/keen_dpi_public/main/keen_bypass_geo.sh)" 
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/nikrays/keen_bypass_public/main/keen_bypass_geo.sh)" 
 ```
 
 ---
