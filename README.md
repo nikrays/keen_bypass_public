@@ -11,7 +11,8 @@
 
 ## 🎥 Demo
 
-![Keen Bypass]()
+![Keen Bypass](https://github.com/user-attachments/assets/b58835a5-e53a-47b1-ab7d-606ca79e2204)
+)
 
 ---
 
@@ -96,8 +97,6 @@
   <summary>📄 Короткая инструкция</summary>
 
 1. Запустить:
-
-   ![Blockcheck](https://github.com/user-attachments/assets/93f9438d-1bf4-400e-bab3-17fc652ef304)
 
 2. Вставить:
    - Сначала отдельно прогоняем для YouTube:
