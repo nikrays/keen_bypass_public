@@ -11,7 +11,7 @@
 
 ## 🎥 Demo
 
-![Keen DPI](https://github.com/user-attachments/assets/4ce0bd5a-c77d-436b-bf3b-5795c5c4f84a)
+![Keen Bypass]()
 
 ---
 
@@ -46,7 +46,8 @@
   ```
 - Еще один эффективный вариант — использовать ресолвер от yandex 77.88.8.88 на нестандартном порту 1253.
 
-![image](https://github.com/user-attachments/assets/4ab290e8-9dcd-4143-a3f2-584fd0a21530)
+![DNS](https://github.com/user-attachments/assets/845fa467-1292-4b18-8a0f-12d96ccb3969)
+)
 
 </details>
 
@@ -67,15 +68,6 @@
 8. Скачайте [Putty](https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe) для работы с SSH и Telnet. Запустите и выберите тип протокола.
 9. Если видите это — подготовка завершена.
 
-![Скриншоты этапов](https://github.com/user-attachments/assets/0bd134b7-f5c9-4d1f-a22d-f41430c1f655)
-![Еще скриншот](https://github.com/user-attachments/assets/fe08613c-b0fb-41b1-913c-1fd386dee543)
-![Еще](https://github.com/user-attachments/assets/4b813281-2b29-4e25-9945-54ae87331dd4)
-![USB](https://github.com/user-attachments/assets/56349a82-95f8-46a2-b85a-26f5d2929180)
-![Install](https://github.com/user-attachments/assets/f508739a-59fd-42be-872a-39733af57cc3)
-![Диагностика](https://github.com/user-attachments/assets/5c451982-a36c-4a3d-aacb-497e8898caa4)
-![Putty](https://github.com/user-attachments/assets/066ae86b-237d-4e29-aae8-fd8ef6236b74)
-![Финал](https://github.com/user-attachments/assets/21c9e155-25cf-41e6-8699-163afc839733)
-
 </details>
 
 ---
@@ -85,11 +77,9 @@
 <details>
   <summary>📸 Пример настроек OPKG</summary>
 
-![OPKG](https://github.com/user-attachments/assets/9ee6d4c2-3311-483f-a930-6158c5f5ae82)
+![OPKG](https://github.com/user-attachments/assets/59ffcf54-b403-440f-92d0-be0bed1ce39d)
 
 - Проверьте наличие галочки "Протокол IPV6":
-
-![IPV6](https://github.com/user-attachments/assets/bd52fd5c-0d96-40f3-93cf-2af89fdd9358)
 
 </details>
 
