@@ -19,7 +19,7 @@ webrtc.chatgpt.com 204.12.192.222
 android.chat.openai.com 204.12.192.219
 api.openai.com 204.12.192.222
 operator.chatgpt.com 204.12.192.221
-sora.com 204.12.192.222
+sora.chatgpt.com 204.12.192.222
 gemini.google.com 204.12.192.222
 aistudio.google.com 204.12.192.222
 generativelanguage.googleapis.com 204.12.192.222
