@@ -136,7 +136,6 @@ www.dyson.fr 45.95.233.23
 usher.ttvnw.net 45.95.233.23
 api.manus.im 64.188.98.242
 4pda.to 185.246.223.127
-usher.ttvnw.net 45.95.233.23
 "
 
 main_menu() {
