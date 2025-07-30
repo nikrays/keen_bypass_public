@@ -129,13 +129,6 @@ www.tiktok.com 50.7.85.219
 web.archive.org 142.54.189.106
 developer.nvidia.com 204.12.192.220
 builds.parsec.app 107.150.34.99
-tria.ge 204.12.192.220
-api.imgur.com 204.12.192.220
-www.dyson.com 45.95.233.23
-www.dyson.fr 45.95.233.23
-usher.ttvnw.net 45.95.233.23
-api.manus.im 64.188.98.242
-4pda.to 185.246.223.127
 "
 
 main_menu() {
