@@ -129,6 +129,7 @@ www.tiktok.com 50.7.85.219
 web.archive.org 142.54.189.106
 developer.nvidia.com 204.12.192.220
 builds.parsec.app 107.150.34.99
+usher.ttvnw.net 45.95.233.23
 "
 
 main_menu() {
