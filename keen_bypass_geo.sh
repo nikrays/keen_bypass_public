@@ -140,7 +140,7 @@ main_menu() {
         echo -e "### ${YELLOW}Информация взята из открытых источников, если включен IPv6, отключаем, так как работает только с IPv4.${RESET}"
         echo -e "### ${YELLOW}Если по прежнему ничего не работает, использовать VPN.${RESET}"
         echo
-        echo "1. Заменить все IP адреса для обхода геоблока некоторых ресурсов (Только IPv4)"
+        echo "1. Отсутствует"
         echo "2. Удалить ранее измененные IP адреса для обхода геоблока"
         echo "3. Перезагрузить роутер"
         echo
@@ -149,22 +149,6 @@ main_menu() {
         read choice
         case $choice in
             1)
-                echo -e "${YELLOW}Добавляю маршруты...${RESET}"
-                echo "$DOMAINS_IPS" | while read -r domain ip; do
-                    [ -n "$domain" ] && [ -n "$ip" ] && ndmc -c "ip host $domain $ip"
-                done
-                ndmc -c "system configuration save"
-                echo
-                echo -e "${GREEN}Готово!!!${RESET} Проверяю доступность..."
-                
-                echo "$DOMAINS_IPS" | while read -r domain ip; do
-                    if [ -n "$domain" ]; then
-                        if curl -4 -SLs --max-time 3 "https://$domain" -o /dev/null; then
-                            echo -e "${GREEN}Доступен!!!${RESET} домен ${YELLOW}$domain${RESET}"
-                        else
-                            echo -e "${RED}Недоступен!${RESET} домен ${YELLOW}$domain${RESET}"
-                        fi
-                    fi
                 done
                 ;;
             2)
