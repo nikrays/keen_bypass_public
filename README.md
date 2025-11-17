@@ -26,6 +26,21 @@
 - 🖥️ В настройках Ethernet — "Игнорировать DNSv4 и DNSv6 интернет-провайдера"
 - ⚡ Настройте DоT по [инструкции](https://help.keenetic.com/hc/ru/articles/360021214160)
 
+---
+
+<details>
+  <summary>📸 Необходимые компоненты: "Меню > Параметры системы > Изменить набор компонентов"</summary>
+  
+- **Компонены операционной системы:** "Рекомендованный набор"
+- **Базовые компоненты:** Сервер SSH
+- **Сетевые функции:** SSTP VPN-сервер, IPv6, WireGuard VPN
+- **Пакеты OPKG:** Поддержка открытых пакетов, Модули ядра Netfilter
+
+_Сохраните изменения — устройство перезагрузится_
+</details>
+
+---
+
 <details>
   <summary>🖼️ Кастомные DNS-over-TLS</summary>
 
@@ -44,7 +59,7 @@
 <details>
   <summary>📝 Установка Entware</summary>
 
-1. Предварительно отформатируйте флешку в ext4 с названием раздела `opkg`
+1. Предварительно отформатируйте флешку в ext4 с названием раздела `opkg` с помощью портативной программы [DiskGenius](https://download.eassos.com/DGEng6101725_x86.zip), откройте архив, запустите DiskGenius.exe.
 2. Подключите к роутеру, зайдите в CLI через [192.168.1.1/a](http://192.168.1.1/a)
 3. Вставьте команду для отключения OPKG:
 
@@ -66,19 +81,7 @@
 
 5. Следите за логом в разделе диагностики
 
-- [Официальная инструкция](https://help.keenetic.com/hc/ru/articles/360021214160)
-</details>
-
----
-
-<details>
-  <summary>📸 Необходимые компоненты: "Меню > Параметры системы > Изменить набор компонентов"</summary>
-
-- **Базовые компоненты:** Сервер SSH
-- **Сетевые функции:** SSTP VPN-сервер, IPv6, WireGuard VPN
-- **Пакеты OPKG:** Поддержка открытых пакетов, Модули ядра Netfilter
-
-_Сохраните изменения — устройство перезагрузится_
+- [Официальная инструкция (Необязательно)](https://help.keenetic.com/hc/ru/articles/360021214160)
 </details>
 
 ---
@@ -110,9 +113,33 @@ _Сохраните изменения — устройство перезагр
 
 ## 🛠️ Полезные команды
 
-- 🔄 Перезагрузить Entware:
+- 🧹 Форматирование раздела OPKG:
+  ```shell
+  rm -rf /opt/*
+  ```
+- 💾 Сделать backup entware настроек только для текущего устройства:
+  ```shell
+  cd /opt && tar cvzf /opt/backup-$(date -I).tar.gz *
+  ```
+- 🔙 Скрипт init.rc:
+  ```shell
+  /opt/etc/init.d/rc.unslung
+  ```
+- ⏹️ Остановить Entware:
+  ```shell
+  /opt/etc/init.d/rc.unslung stop
+  ```
+- 🚦 Запустить Entware:
+  ```shell
+  /opt/etc/init.d/rc.unslung start
+  ```
+- 🔁 Перезагрузить Entware:
   ```shell
   /opt/etc/init.d/rc.unslung restart
+  ```
+- ⏹️ Остановить службу:
+  ```shell
+  /opt/zapret/init.d/sysv/zapret stop
   ```
 - 🚦 Запустить службу:
   ```shell
@@ -122,25 +149,9 @@ _Сохраните изменения — устройство перезагр
   ```shell
   /opt/zapret/init.d/sysv/zapret restart
   ```
-- ⏹️ Остановить службу:
-  ```shell
-  /opt/zapret/init.d/sysv/zapret stop
-  ```
-- 💾 Сделать backup entware настроек только для текущего устройства:
-  ```shell
-  cd /opt && tar cvzf /opt/backup-$(date -I).tar.gz *
-  ```
-- 🧹 Форматирование раздела OPKG:
-  ```shell
-  rm -rf /opt/*
-  ```
 - 🗑️ Удалить службу:
   ```shell
   rm -rf /opt/zapret/
-  ```
-- 🔙 Скрипт init.rc:
-  ```shell
-  /opt/etc/init.d/rc.unslung
   ```
 
 ---
@@ -149,27 +160,19 @@ _Сохраните изменения — устройство перезагр
 
 - 🏎️ Тест скорости:
   ```shell
-  curl --connect-to ::speedtest.selectel.ru https://manifest.googlevideo.com/10MB -k -o/dev/null
+  curl --tls-max 1.2 -4 -o /dev/null -k --connect-to ::speedtest.selectel.ru --max-time 5 https://test.googlevideo.com/10MB -w "%{speed_download}" | awk '{printf "%.2f Mbps\n", $1*8/1000000}'
   ```
 - 🔍 Проверить ресурс:
   ```shell
   curl https://play.google.com -I
   curl -v --tls-max 1.2 --tlsv1.2 https://rr3---sn-n8v7kn7k.googlevideo.com -4
-  curl -v --http3-only https://rr3---sn-n8v7zns6.googlevideo.com
+  curl -v --http3-only https://rr3---sn-n8v7zns6.googlevideo.com -4
   curl -v --tls-max 1.2 --tlsv1.2 https://rr3---sn-n8v7kn7k.googlevideo.com -6
   curl -v --http3-only https://rr3---sn-n8v7kn7k.googlevideo.com -6
   ```
 - 🖥️ Вывод интерфейсов:
   ```shell
   ifconfig
-  ```
-- 🕵️ Blockcheck:
-  ```shell
-  opkg install nmap ncat && /opt/zapret/init.d/sysv/zapret stop && SKIP_TPWS=1 /opt/zapret/blockcheck.sh | tee /opt/zapret/blockcheck_out.txt
-  ```
-- 🌍 Обход геоблока через hosts Keenetic/Netcraze (ChatGPT, Gemini, Copilot, Codeium, JetBrains, Tidal, claude.ai, Canva, Intel):
-  ```shell
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/nikrays/keen_bypass_public/main/keen_bypass_geo.sh)"
   ```
 
 ---
