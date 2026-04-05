@@ -23,7 +23,6 @@
   ```
 - 💿 Keenetic OS версии **не ниже 4.2**
 - 🛡️ В "Интернет-фильтры" отключите все сторонние фильтры (NextDNS, SkyDNS, Яндекс DNS и др.)
-- 🖥️ В настройках Ethernet — "Игнорировать DNSv4 и DNSv6 интернет-провайдера"
 - ⚡ Настройте DоT по [инструкции](https://help.keenetic.com/hc/ru/articles/360007687159-%D0%9F%D1%80%D0%BE%D0%BA%D1%81%D0%B8-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D1%8B-DNS-over-TLS-%D0%B8-DNS-over-HTTPS-%D0%B4%D0%BB%D1%8F-%D1%88%D0%B8%D1%84%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-DNS-%D0%B7%D0%B0%D0%BF%D1%80%D0%BE%D1%81%D0%BE%D0%B2)
 
 ---
@@ -42,14 +41,14 @@ _Сохраните изменения — устройство перезагр
 ---
 
 <details>
-  <summary>🖼️ Кастомные DNS-over-TLS</summary>
+  <summary>🖼️ Кастомные DNS-over-TLS (Лучше только первый использовать)</summary>
 
 - **DoT1:**
   Сервер: `hel01.dnscry.pt`  
   TLS-имя: `hel01.dnscry.pt`
 
 - **DoT2:**
-  Сервер: `77.88.8.8`  
+  Сервер: `common.dot.dns.yandex.net`  
   TLS-имя: `common.dot.dns.yandex.net`
 
 </details>
@@ -67,21 +66,23 @@ _Сохраните изменения — устройство перезагр
    opkg no disk
    ```
 
-4. Вставьте команду (выберите архитектуру):
+4. Вставьте команду (выберите архитектуру, а также место, где NAND это встроенная память, FLASH на внешний носитель):
 
-   **Mipsel:**
+   **Arch64 (NAND):**
    ```
-   opkg disk opkg:/ https://bin.entware.net/mipselsf-k3.4/installer/mipsel-installer.tar.gz
+   opkg disk storage:/ https://bin.entware.net/aarch64-k3.10/installer/aarch64-installer.tar.gz
    ```
-   **Arch64:**
+   **Arch64 (FLASH):**
    ```
    opkg disk opkg:/ https://bin.entware.net/aarch64-k3.10/installer/aarch64-installer.tar.gz
    ```
-   _(название раздела можно уточнить в web-интерфейсе накопителя)_
+   **Mipsel (FLASH):**
+   ```
+   opkg disk opkg:/ https://bin.entware.net/mipselsf-k3.4/installer/mipsel-installer.tar.gz
+   ```
+   _(название раздела FLASH можно уточнить в web-интерфейсе накопителя)_
    
-   Для установки на встроенный накопитель введите storage: вместо opkg:
-
-6. Следите за логом в разделе диагностики
+5. Следите за логом в разделе диагностики
 
 - [Официальная инструкция (Необязательно)](https://help.keenetic.com/hc/ru/articles/360021214160)
 </details>
